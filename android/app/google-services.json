@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "621611342786",
+    "project_id": "fir-tutorials-8b089",
+    "storage_bucket": "fir-tutorials-8b089.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621611342786:android:3b45b52d4f476663a4945b",
+        "android_client_info": {
+          "package_name": "com.example.firebase_tutorials"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4lOSKS6rSKwFfbjm2Rpr6Wn94dYH8Umw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621611342786:android:e29f44cb9e364859a4945b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_tutorials"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4lOSKS6rSKwFfbjm2Rpr6Wn94dYH8Umw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
