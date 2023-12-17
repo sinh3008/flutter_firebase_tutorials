@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_tutorials/screen/login_screen.dart';
 
-import 'home_page.dart';
+import '../screen/home_page.dart';
+import 'auth_page.dart';
+
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -16,7 +18,7 @@ class MainPage extends StatelessWidget {
           if (snapshot.hasData) {
             return const HomePage();
           }else{
-            return const LoginPage();
+            return AuthPage();
           }
         },
       ),
