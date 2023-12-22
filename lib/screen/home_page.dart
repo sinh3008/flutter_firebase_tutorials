@@ -19,34 +19,46 @@ class _HomePageState extends State<HomePage> {
 
   //get docs IDs
   Future getDocId() async {
-    await FirebaseFirestore.instance
-        .collection('users')
-        .get()
-        .then((snapshot) => snapshot.docs.forEach((document) {
-              print(document.reference);
-              docsId.add(document.reference.id);
-            }));
+    await FirebaseFirestore.instance.collection('users').get().then(
+          (snapshot) => snapshot.docs.forEach(
+            (document) {
+              if (docsId.contains(document.reference.id)) {
+              } else {
+                docsId.add(document.reference.id);
+              }
+            },
+          ),
+        );
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home page '),
+        title: Text(' ${user!.email}'),
       ),
       body: Center(
         child: Column(
           children: [
-            Text('${user!.email}'),
             Expanded(
               child: FutureBuilder(
                 future: getDocId(),
                 builder: (context, snapshot) => ListView.builder(
-                  itemCount: docsId.length ,
+                  itemCount: docsId.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: GetUserName(documentId: docsId[index],),
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 10.0),
+                      child: ListTile(
+                        trailing: const Icon(Icons.verified_user),
+                        title: GetUserName(
+                          documentId: docsId[index],
+                        ),
+                      ),
                     );
                   },
                 ),

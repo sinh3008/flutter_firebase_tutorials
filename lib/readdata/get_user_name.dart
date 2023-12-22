@@ -11,16 +11,20 @@ class GetUserName extends StatelessWidget {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(documentId).get(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
-          return Text('first name: ${data['first name']}');
+          return Text(
+            '${data['first name']} ${data['last name']},'
+                ' ${data['age']} year old',
+            style: const TextStyle(fontWeight: FontWeight.w400),
+          );
         } else {
-          return Text('Loading ...');
+          return const Text('Loading ...');
         }
       },
-      future: users.doc(documentId).get(),
     );
   }
 }
